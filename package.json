@@ -1,0 +1,35 @@
+{
+  "name": "angularproject",
+  "version": "1.0.0",
+  "main": "connection.js",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "async-validator": "^3.5.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "core-js": "^3.8.3",
+    "cors": "^2.8.5",
+    "datetime": "0.0.3",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "joi": "^17.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.8",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-type-email": "^1.1.2",
+    "mongoose-unique-validator": "^2.0.3",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
