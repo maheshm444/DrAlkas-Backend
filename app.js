@@ -20,7 +20,6 @@ app.use(function (req, res, next) {
     next();
 });
 app.post('/create', user.createUser);
-app.get('/count', user.findCount);
 app.post('/login', user.login);
 app.get('/clinic', clinic.getClinicName);
 app.post('/clinic', clinic.postClinicDetails);

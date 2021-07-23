@@ -2,12 +2,11 @@ const { patientHistoryModel } = require('./patientsHistoryModel');
 const { patientModel } = require('../patients/patientsModel');
 
 const getPatientHistory = async (req, res) => {
-
     let id = req.params.id
     if (!id) {
-        return res.status(500).json({error: 'Missing patient id'})
-    }else if (isNaN(id)){
-        return res.status(500).json({error: 'Invalid patient id'})
+        return res.status(500).json({ error: 'Missing patient id' })
+    } else if (isNaN(id)) {
+        return res.status(500).json({ error: 'Invalid patient id' })
     }
     id = parseInt(id)
     let promises = [
@@ -15,7 +14,6 @@ const getPatientHistory = async (req, res) => {
         getClinicDetails(id),
         getProductDetails(id)
     ]
-
     Promise.all(promises).then((resData) => {
         let result = {};
         let error = ''
@@ -30,10 +28,10 @@ const getPatientHistory = async (req, res) => {
             }
         });
         if (error) {
-            return res.status(500).json({success: false, error: error})
+            return res.status(500).json({ success: false, error: error })
         }
-        
-        return res.status(200).json({success: true, data: result})
+
+        return res.status(200).json({ success: true, data: result })
     });
 }
 
@@ -55,7 +53,7 @@ function getDoctorDetails(patientId) {
         },
 
         {
-            $project: { "doctor.doctor_name": 1, "doctor.doctor_dob": 1 }
+            $project: { "doctor.doctor_name": 1 }
         }
     ]);
 }

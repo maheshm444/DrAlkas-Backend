@@ -41,14 +41,7 @@ const createUser = async (req, res) => {
 }
 
 
-const findCount = async (req, res, next) => {
-    const results = await userModel.count((err, data) => {
-        if (err) {
-            return res.status(500).json({ error: err })
-        }
-        return res.status(200).json(data);
-    })
-}
+
 const login = async (req, res) => {
     userModel.findOne({ email: req.body.email }, (err, obj) => {
         if (err) {
@@ -77,5 +70,4 @@ const generateToken = function (body) {
 
 
 exports.createUser = createUser;
-exports.findCount = findCount;
 exports.login = login;

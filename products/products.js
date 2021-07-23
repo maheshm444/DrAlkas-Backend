@@ -1,12 +1,6 @@
 const { productModel } = require('./productsModel');
 
 const getProducts = async (req, res, next) => {
-    // await productModel.find((err, data) => {
-    //     if(err) {
-    //         return res.status(500).json({error: err})
-    //     }
-    //    return res.status(200).json(data);
-    // })
     return productModel.aggregate([
         {
             $match: {
@@ -45,7 +39,7 @@ const productDetails = function (req, res) {
 }
 
 
-const updateDetails = async (req, res, next) => {
+const updateDetails = async (req, res) => {
     const id = req.params.id;
     const updates = req.body;
     const options = { new: true };
@@ -61,7 +55,7 @@ const updateDetails = async (req, res, next) => {
 
 }
 
-const deleteDetails = async (req, res, next) => {
+const deleteDetails = async (req, res) => {
     const id = req.params.id;
     const updates = req.body;
     await productModel.findByIdAndDelete(id, updates, function (error, data) {
